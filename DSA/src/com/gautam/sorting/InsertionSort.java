@@ -9,8 +9,8 @@ public class InsertionSort {
 
         System.out.println(" Original Data: " + Arrays.toString(arr));
 
-        // Insertion Sort
-        for (int i = 1; i < arr.length; i++) {
+        // Insertion Sort: i can also be start from i = 0;
+        for (int i = 0; i < arr.length; i++) {
             int j = i - 1;
             int key = arr[i];
 

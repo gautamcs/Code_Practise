@@ -11,34 +11,34 @@ public class Arrange012 {
 
         System.out.println(" Original Array: "+Arrays.toString(arr));
 
-       // Arrays.sort(arr);
+        int lo = 0;
+        int mid = 0;
+        int hi = arr.length-1;
+        int temp = 0;
 
-        System.out.println(" Sorted Array: "+Arrays.toString(arr));
-
-        int[] arr1= {0,0,1,1,1,2,2,3,3,4};
-
-        List<Integer> list = new ArrayList<>();
-        for(int i : arr1) {
-            list.add(i);
-        }
-
-        int[] array = Arrays.stream(arr1).distinct().toArray();
-        System.out.println(list);
-
-        //List<Integer> temp = list.stream().distinct().collect(Collectors.toList());
-
-        char[] newArr = new char[arr1.length];
-        for(int i = 0; i < arr1.length; i++) {
-            if(array.length > i) {
-                newArr[i] = (char)array[i];
-            } else {
-                newArr[i] = '_';
+        while (mid <= hi) {
+            switch (arr[mid]) {
+                case 0: {
+                    temp = arr[lo];
+                    arr[lo] = arr[mid];
+                    arr[mid] = temp;
+                    lo++;
+                    mid++;
+                    break;
+                }
+                case 1: {
+                    mid++;
+                    break;
+                }
+                case 2: {
+                    temp = arr[mid];
+                    arr[mid] = arr[hi];
+                    arr[hi] = temp;
+                    hi--;
+                    break;
+                }
             }
-
         }
-
-        System.out.println(" Final Array: "+Arrays.toString(newArr));
-        System.out.println(" Diff: "+(arr1.length - array.length));
-
+        System.out.println(" Final Array: "+Arrays.toString(arr));
     }
 }
